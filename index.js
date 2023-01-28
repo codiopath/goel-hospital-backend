@@ -7,6 +7,9 @@ const cors = require('cors')
 const UserModel = require('./models/UserModel')
 const DescriptionModel = require('./models/DescriptionModel')
 const BlogModel = require('./models/BlogModel')
+const ServicesModel = require('./models/ServicesModel')
+const GalleryVideoModel = require('./models/GalleryVideoModel')
+const GalleryImageModel = require('./models/GalleryImageModel')
 
 mongoose.set('strictQuery', false)
 
@@ -151,6 +154,108 @@ app.post('/blogElement', async (req, res)=> {
 })
 
 
+
+// ------- Services Model Start -------\\\
+
+app.get('/get-services', async (req, res)=> {
+    const check = await req.body
+
+   await ServicesModel.find()
+   .then((obj)=> {
+    res.json(obj)
+   })
+   .catch((err)=> {
+    res.send(`This is the error : ${err}`)
+   })
+
+})
+
+app.post('/adding-service', async (req, res)=> {
+    const check = await req.body
+   await ServicesModel.create(check)
+   .then(()=> {
+        res.send("data uploaded successfully")
+   })
+   .catch((err)=> {
+        res.send(`This is the error : ${err.message}`)
+   })
+
+})
+
+// ================XXXXXXX===========
+
+
+
+// --------- Gallery Model --------
+
+app.get('/get-gallery-video', async (req, res)=> {
+    const check = await req.body
+
+   await GalleryVideoModel.find()
+   .then((obj)=> {
+    res.json(obj)
+   })
+   .catch((err)=> {
+    res.send(`This is the error : ${err}`)
+   })
+
+})
+
+app.post('/add-gallery-video', async (req, res)=> {
+    const check = await req.body
+   await GalleryVideoModel.create(check)
+   .then(()=> {
+        res.send("data uploaded successfully")
+   })
+   .catch((err)=> {
+        res.send(`This is the error : ${err.message}`)
+   })
+
+})
+
+
+
+app.get('/get-gallery-images', async (req, res)=> {
+    const check = await req.body
+
+   await GalleryImageModel.find()
+   .then((obj)=> {
+    res.json(obj)
+   })
+   .catch((err)=> {
+    res.send(`This is the error : ${err}`)
+   })
+
+})
+
+app.post('/add-gallery-image', async (req, res)=> {
+    const check = await req.body
+   await GalleryImageModel.create(check)
+   .then(()=> {
+        res.send("data uploaded successfully")
+   })
+   .catch((err)=> {
+        res.send(`This is the error : ${err.message}`)
+   })
+
+})
+
+app.post('/delete-gallery-image', async (req, res)=> {
+    const check = await req.body
+   await GalleryImageModel.deleteOne(check)
+   .then(()=> {
+        res.send("data deleted successfully")
+   })
+   .catch((err)=> {
+        res.send(`This is the error : ${err.message}`)
+   })
+
+})
+
+
+
+
+// ========== XXXXXXx =========
 
 
 
