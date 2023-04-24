@@ -2,13 +2,14 @@ const mongoose = require('mongoose')
 
 const DescSchema = mongoose.Schema({
     title: {
-        type: String,
-        required: true
+        type: String
     },
     description: {
-        type: String,
-        required: true
+        type: String
     },
+    createdAt: {
+        type: Date, default: Date.now()
+    }
 })
 
 const DescriptionModel = mongoose.model('description', DescSchema)

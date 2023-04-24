@@ -3,6 +3,15 @@ const mongoose = require('mongoose')
 const GalleryImageSchema = mongoose.Schema({
     image: {
         type: String
+    },
+    title: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    createdAt: {
+        type: Date, default: Date.now()
     }
 })
 

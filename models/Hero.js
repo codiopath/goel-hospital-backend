@@ -1,10 +1,7 @@
 const mongoose = require('mongoose')
 
-const BlogSchema = mongoose.Schema({
+const HeroSchema = mongoose.Schema({
     title: {
-        type: String
-    },
-    description: {
         type: String
     },
     image: {
@@ -15,6 +12,6 @@ const BlogSchema = mongoose.Schema({
     }
 })
 
-const BlogModel = mongoose.model('blog', BlogSchema)
+const HeroModel = mongoose.model('hero', HeroSchema)
 
-module.exports = BlogModel
+module.exports = HeroModel

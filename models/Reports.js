@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 
-const UserSchema = mongoose.Schema({
-    name: {
+const ReportSchema = mongoose.Schema({
+    patientName: {
         type: String
     },
-    email: {
+    patientId: {
         type: String
     },
-    password: {
+    reportFile: {
         type: String
     },
     createdAt: {
@@ -15,6 +15,6 @@ const UserSchema = mongoose.Schema({
     }
 })
 
-const UserModel = mongoose.model('user', UserSchema)
+const ReportModel = mongoose.model('report', ReportSchema)
 
-module.exports = UserModel
+module.exports = ReportModel

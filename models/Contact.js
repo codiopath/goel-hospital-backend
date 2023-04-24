@@ -1,13 +1,16 @@
 const mongoose = require('mongoose')
 
-const UserSchema = mongoose.Schema({
+const ContactSchema = mongoose.Schema({
     name: {
         type: String
     },
     email: {
         type: String
     },
-    password: {
+    subject: {
+        type: String
+    },
+    message: {
         type: String
     },
     createdAt: {
@@ -15,6 +18,6 @@ const UserSchema = mongoose.Schema({
     }
 })
 
-const UserModel = mongoose.model('user', UserSchema)
+const ContactModel = mongoose.model('contact', ContactSchema)
 
-module.exports = UserModel
+module.exports = ContactModel
